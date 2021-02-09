@@ -9,7 +9,10 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   express()
-    .get('/', (req, res) => res.render('public/index'))
+    .use(express.static(path.join(__dirname, 'public')))
+    .set('views', path.join(__dirname, 'views'))
+    .get('/', (req, res) => res.render('pages/index'))
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   //res.end('Hello World\n');
 });
 
