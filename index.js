@@ -1,4 +1,12 @@
 const express = require('express')
+const app = express();
+
+const port = 3000;
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
+
+/*const express = require('express')
 const path = require('path')
 const http = require('http');
 
@@ -13,12 +21,11 @@ const server = http.createServer((req, res) => {
     .set('views', path.join(__dirname, 'views'))
     .get('/', (req, res) => res.render('pages/index'))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-  //res.end('Hello World\n');
 });
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
-}); 
+});*/
 
 /*
 const express = require('express')

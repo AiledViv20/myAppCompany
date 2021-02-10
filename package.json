@@ -1,11 +1,23 @@
 {
-    "name": "cloud-course",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "node ./index.js"
-    },
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AiledViv20/myAppCompany.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AiledViv20/myAppCompany/issues"
+  },
+  "homepage": "https://github.com/AiledViv20/myAppCompany#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
