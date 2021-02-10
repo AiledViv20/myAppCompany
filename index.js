@@ -1,40 +1,29 @@
 const express = require('express')
 const app = express();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views')
+app.set('views', __dirname + '/views');
 
-/*const express = require('express')
-const path = require('path')
-const http = require('http');
 
-const hostname = '0.0.0.0';
-const port = process.env.PORT || 5000;
+app.use(express.static(__dirname + "/public"));
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  express()
-    .use(express.static(path.join(__dirname, 'public')))
-    .set('views', path.join(__dirname, 'views'))
-    .get('/', (req, res) => res.render('pages/index'))
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-});
+app.get('/', (req, res) => {
+  res.render("index", {titulo: "my app dinamic"})
+})
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});*/
+app.get('/servicios', (req, res) => {
+  res.render("servicios", {tituloServicios: "Test dinamic services"})
+})
 
-/*
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+app.use((req, res, next) => {
+  res.status(404).render("404", {
+    titulo: "404",
+    descripcion: "Titulo del sitio web"
+  })
+})
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))*/
+app.listen(port, () => {
+  console.log('servidor a su servicio en el puerto', port)
+})
